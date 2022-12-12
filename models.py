@@ -19,15 +19,15 @@ class Person(Base):
     # cart = None
 
 
-# class Address(Base):
-#     __tablename___ = "address"
+class Address(Base):
+    __tablename___ = "address"
 
-#     id = Column(Integer, primary_key=True)
-#     street = Column(String(64))
-#     suburb = Column(String(64), nullable=True)
-#     city = Column(String(64))
-#     postal_code = Column(String(64))
-#     country = Column(String(64))
+    id = Column(Integer, primary_key=True)
+    street = Column(String(64))
+    suburb = Column(String(64), nullable=True)
+    city = Column(String(64))
+    postal_code = Column(String(64))
+    country = Column(String(64))
 
 # # class Order(Base):
 # #     __tablename__ = "order"
