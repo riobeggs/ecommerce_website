@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, ARRAY
+from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.orm import declarative_base, relationship
 
 Base = declarative_base()
@@ -12,11 +12,8 @@ class Person(Base):
     last_name = Column(String(32))
     phone_number = Column(String(16))
     email_address = Column(String(64))
-    # shipping_id = Column(Integer, ForeignKey(Address.id))
-
-    # shipping = relationship("Address", foreign_key = )
-    # billing = None
-    # cart = None
+    shipping_id = Column(Integer, ForeignKey("address.id"))
+    billing_id = Column(Integer, ForeignKey("address.id"), nullable=True)
 
 
 class Address(Base):
