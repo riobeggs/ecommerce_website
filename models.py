@@ -12,6 +12,7 @@ class Person(Base):
     last_name = Column(String(32))
     phone_number = Column(String(16))
     email_address = Column(String(64))
+
     shipping_id = Column(Integer, ForeignKey("address.id"))
     billing_id = Column(Integer, ForeignKey("address.id"), nullable=True)
 
@@ -33,6 +34,5 @@ class Order(Base):
     id = Column(Integer, primary_key=True)
     total = Column(Integer)
 
-
-# #     address_id = None
-# #     billing_id = None
+    person_id = Column(Integer, ForeignKey("person.id"))
+    shipping_id = Column(Integer, ForeignKey("address.id"))
