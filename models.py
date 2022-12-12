@@ -20,7 +20,7 @@ class Person(Base):
 
 
 class Address(Base):
-    __tablename___ = "address"
+    __tablename__ = "address"
 
     id = Column(Integer, primary_key=True)
     street = Column(String(64))
@@ -29,12 +29,13 @@ class Address(Base):
     postal_code = Column(String(64))
     country = Column(String(64))
 
-# # class Order(Base):
-# #     __tablename__ = "order"
 
-# #     id = Column(Integer, primary_key=True)
-# #     items = Column(ARRAY)
-# #     total = Column(Integer)
+class Order(Base):
+    __tablename__ = "order"
+
+    id = Column(Integer, primary_key=True)
+    total = Column(Integer)
+
 
 # #     address_id = None
 # #     billing_id = None
