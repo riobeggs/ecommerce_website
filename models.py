@@ -1,5 +1,5 @@
 from sqlalchemy import Column, Integer, String, ForeignKey
-from sqlalchemy.orm import declarative_base, relationship
+from sqlalchemy.orm import declarative_base
 
 Base = declarative_base()
 
@@ -36,3 +36,19 @@ class Order(Base):
 
     person_id = Column(Integer, ForeignKey("person.id"))
     shipping_id = Column(Integer, ForeignKey("address.id"))
+
+
+class OrderItems(Base):
+    __tablename__ = "order_items"
+
+    id = Column(Integer, primary_key=True)
+    order_id = Column(Integer, ForeignKey("order.id"))
+    quantity = Column(Integer)
+
+
+class Item(Base):
+    __tablename__ = "item"
+
+    id = Column(Integer, primary_key=True)
+    title = Column(String(64))
+    price = Column(Integer)
