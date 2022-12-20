@@ -2,7 +2,7 @@ from flask import Flask, render_template, request
 from sqlalchemy import create_engine
 from sqlalchemy.orm import Session
 
-import models
+from src import models
 
 engine = create_engine("sqlite:///test.sqlite", echo=True, future=True)
 
