@@ -1,5 +1,5 @@
 from sqlalchemy import Column, Integer, String, ForeignKey
-from sqlalchemy.orm import declarative_base, relationship
+from sqlalchemy.orm import declarative_base
 
 Base = declarative_base()
 
@@ -13,8 +13,12 @@ class Person(Base):
     phone_number = Column(String(16))
     email_address = Column(String(64))
 
-    shipping_id = relationship("Address", backref=)
-    billing_id = relationship("Address")
+    shipping_id = Column(Integer, ForeignKey("address.id", name="fk_address_id"))
+    billing_id = Column(
+        Integer,
+        ForeignKey("address.id", name="fk_address_id"),
+        nullable=True,
+    )
     shopping_cart_id = Column(
         Integer,
         ForeignKey("shopping_cart.id", name="fk_shopping_cart_id"),
